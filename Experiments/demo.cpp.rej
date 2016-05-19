@@ -1,0 +1,36 @@
+diff a/Experiments/demo.cpp b/Experiments/demo.cpp	(rejected hunks)
+@@ -48,19 +48,32 @@ int main()
+ {
+ 	printf("Running EagleTree\n");
+ 	set_small_SSD_config();
++//	set_big_SSD_config();
++
++	//gogo greedy
++	GARBAGE_COLLECTION_POLICY = 0;
++	string name  = "/demo_output_greedy/";
++
++	//gogo dj
++//		GARBAGE_COLLECTION_POLICY = 2;
++//	string name  = "/demo_output_500/";
++
++
+ 	FTL_DESIGN = 1;	// using DFTL
+ 	SCHEDULING_SCHEME = 7;
+ 	PRINT_LEVEL = 0;
+ 	MAX_SSD_QUEUE_SIZE = 16;
+ 	ftl_cache::CACHED_ENTRIES_THRESHOLD = pow(2,15);		// SRAM fitting 256 kb, or 2^25 entries,
+ 	DFTL::ENTRIES_PER_TRANSLATION_PAGE = 128;
+-	string name  = "/demo_output/";
++
+ 	Experiment::create_base_folder(name.c_str());
+ 	Experiment* e = new Experiment();
+ 	Workload_Definition* workload = new Example_Workload();
+ 	e->set_workload(workload);
+ 	printf("NUMBER_OF_ADDRESSABLE_PAGES: %d  %d\n", NUMBER_OF_ADDRESSABLE_PAGES(), (int)(NUMBER_OF_ADDRESSABLE_PAGES() * OVER_PROVISIONING_FACTOR));
+-	e->set_io_limit(3000000);
++//e->set_io_limit(3000000);
++	e->set_io_limit(30000000);
++//	e->set_io_limit(pow(2,20));
+ 	e->run("test");
+ 	e->draw_graphs();
+ 	delete workload;

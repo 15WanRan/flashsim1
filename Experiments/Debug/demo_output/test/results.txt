@@ -1,0 +1,35 @@
+num writes:	1995663
+avg writes latency:	33.767226
+std writes latency:	18.483078
+max writes latency:	1452.000000
+
+num reads:	1004338
+avg reads latency:	43.480624
+std reads latency:	128.999077
+max reads latency:	2306.000000
+
+num gc reads:	1495525
+num gc writes:	1495525
+num erases:	22048
+
+Thoughput (IO/sec)
+total throughput:	44517
+read throughput:	14903
+writes throughput:	29614
+channel util:	0.342801
+LUN util:	0.215517
+
+Channel util for package 0:	0.347219
+Channel util for package 1:	0.344390
+Channel util for package 2:	0.341398
+Channel util for package 3:	0.338195
+
+LUN util for LUN 0:	0.217253
+LUN util for LUN 1:	0.217184
+LUN util for LUN 2:	0.216331
+LUN util for LUN 3:	0.215865
+LUN util for LUN 4:	0.215285
+LUN util for LUN 5:	0.214686
+LUN util for LUN 6:	0.213749
+LUN util for LUN 7:	0.213784
+

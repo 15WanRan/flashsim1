@@ -1,0 +1,8 @@
+"Interval", "Application IOs, Reads+writes", "Application IOs, Writes", "Application IOs, Reads", "Internal operations, All", "Internal operations, Writes", "Internal operations, Reads"
+0, 2980331, 2005530, 974801, 4742243, 1727269, 1488811
+500, 7227, 2464, 4763, 1282962, 126327, 577869
+1000, 8858, 95, 8763, 1171421, 31123, 571386
+1500, 3522, 4, 3518, 365530, 8493, 184819
+2000, 57, 0, 57, 23295, 522, 11774
+2500, 5, 0, 5, 1811, 60, 919
+3000, 0, 0, 0, 17, 0, 9

@@ -1,0 +1,67 @@
+std_sx = 32
+std_sy = 8
+
+hist_graphs = 1
+
+pad = 5
+
+size std_sx+pad std_sy*hist_graphs+pad
+set font texcmr
+set hei 0.75
+
+sub hist xp yp data$ title$ yaxis$ xaxistitle$ xmax binsize black_column red_column
+   default black_column 1
+   default red_column -1
+   amove xp*(std_sx/2)+pad yp*std_sy+pad
+   begin graph
+      fullsize
+      size std_sx-pad std_sy-pad
+      if red_column = -1 then
+         key off
+      end if
+      data  data$
+      title title$
+      yaxis \expr{yaxis$}
+      xaxis min -binsize/2
+      xsubticks off
+      x2ticks off
+      x2subticks off
+      xticks length -.1
+      if xmax>0 then
+         xaxis max xmax+binsize/2
+      end if
+      xtitle xaxistitle$
+      ytitle "Frequency"
+      bar d\expr{black_column} width binsize dist binsize fill gray
+      if red_column <> -1 then
+         bar d\expr{red_column} width binsize/2 dist binsize fill red
+      end if
+   end graph
+end sub
+
+sub plot xp yp data$ title$ yaxis$ xaxistitle$ yaxistitle$ num_plots
+   default num_plots 1
+   amove xp*(std_sx/2)+pad yp*std_sy+pad
+   begin graph
+      fullsize
+      size std_sx-pad std_sy-pad
+      if num_plots <= 1 then
+         key off
+      end if
+      data  data$
+      title title$
+      yaxis \expr{yaxis$}
+      xtitle xaxistitle$
+      ytitle yaxistitle$
+      d1 line
+      if num_plots >= 2 then
+         d2 line color red
+      end if
+      
+      
+      axis grid
+      ticks color grey10
+   end graph
+end sub
+age_max = 4
+hist 0 0 "age-0.csv" "Block age histogram " "on min 0 max 5489" "Block age" age_max 1

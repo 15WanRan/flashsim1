@@ -1,0 +1,16 @@
+size 32 16
+include "graphutil.gle"
+set font texcmr
+set hei 0.75
+begin graph
+   key pos tl offset -0.0 0 compact
+   scale auto
+   title  "Write latency boxplot"
+   xtitle ""
+   ytitle "Wait time (µs)"
+   data "/Users/namyun/Workspace/EagleTree/Experiments/Debug/demo_output/test/Global/stats.csv"
+   xaxis min dminx(d1)-2.5 max dmaxx(d1)+2.5 dticks 5
+   dticks off
+   yaxis min 0 max dmaxy(d14)*1.05
+   draw boxplot bwidth 0.4 ds0 9
+end graph
